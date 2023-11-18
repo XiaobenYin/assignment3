@@ -31,7 +31,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import { DocumentHolder } from '../Engine/DocumentHolder';
 import { ChatDataBase } from '../Engine/ChatDataBase';
-import { PortsGlobal } from '../ServerDataDefinitions';
+import { RENDER_SERVER_URL } from '../ServerDataDefinitions';
 
 // define a debug flag to turn on debugging
 let debug = true;
@@ -325,8 +325,8 @@ app.get('/messages/get/:pagingToken?', (req, res) => {
 });
 
 // get the port we should be using
-const port = PortsGlobal.serverPort;
+const path = RENDER_SERVER_URL;
 // start the app and test it
-app.listen(port, () => {
-    console.log(`listening on port ${port}`);
+app.listen(path, () => {
+    console.log(`listening on port ${path}`);
 });
